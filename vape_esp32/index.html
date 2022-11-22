@@ -1,0 +1,37 @@
+R"LIT1(<!DOCTYPE HTML><html><head><title>Vape Settings</title></head>
+<body><div style="text-align: center; margin-top: 1px; margin-bottom: 10px; font-size: 29px;">Voltage -<!--)LIT1" +(String)voltage+ R"LIT2(--></div>
+<div style="text-align: center; margin-bottom: 10px;">
+        <form action="/get">
+            <input type="submit" value="Reboot" name="Reboot">
+           </form></div>
+    <form action="/get">
+      <p style="text-align: center; margin-top: 1px; margin-bottom: 1px;">Frequency: <input style="width: 70px;" 
+      type="text" name="frequency" value=")LIT2+(String)frequency+ RLIT3()">
+      <input type="submit" value="Submit"></p>
+    </form><br>
+    <form action="/get">
+      <p style="text-align: center; margin-top: 1px; margin-bottom: 1px;"> Sleep timer: <input style="width: 70px;" 
+      type="text" name="sleep_timer" value=")LIT3+(String)sleep_timer+RLIT4()">
+      <input type="submit" value="Submit"></p>
+    </form><br>
+    <form action="/get">
+     <p style="text-align: center; margin-top: 1px; margin-bottom: 1px;"> Отсечка затяжки: <input style="width: 70px;"
+      type="text" name="vape_threshold" value=")LIT4+(String)vape_threshold+RLIT5()">
+      <input type="submit"  value="Submit"></p>
+    </form><br>
+    <form action="/get">
+     <p style="text-align: center; margin-top: 1px; margin-bottom: 1px;"> Battery Low: <input style="width: 70px;"
+      type="text" name="battery_low" value=")LIT5+(String)battery_low+RLIT6()">
+      <input type="submit"  value="Submit"></p>
+    </form><br>
+    <form action="/get">
+     <p style="text-align: center; margin-top: 1px; margin-bottom: 1px;"> Watts: <input style="width: 70px;"
+      type="text" name="watts" value=")LIT6+(String)watts+RLIT7()">
+      <input type="submit"  value="Submit"></p>
+    </form><br>
+    <form action="/get">
+     <p style="text-align: center; margin-top: 1px; margin-bottom: 1px;"> Ohms: <input style="width: 70px;"
+      type="text" name="ohms" value=")LIT7+(String)ohms+RLIT8()">
+      <input type="submit"  value="Submit"></p>
+    </form><br>
+  </body></html>)LIT8";
