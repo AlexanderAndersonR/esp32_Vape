@@ -1,4 +1,5 @@
 
+
 //-----------------------------------НАСТРОЙКИ------------------------------------
 int sleep_timer = 10;         // таймер сна в секундах
 int vape_threshold = 3;      // отсечка затяжки, в секундах
@@ -260,7 +261,18 @@ void loop() {
 
   if ((millis() - wake_timer > sleep_timer * 1000) && !server_flag) {  // если кнопки не нажимались дольше чем sleep_timer секунд
     esp_deep_sleep_start();    
+
   }
+  if ((millis() - wake_timer > 50 * 1000) && server_flag) {  // если кнопки не нажимались дольше чем sleep_timer секунд
+    server.end();
+    esp_deep_sleep_start();    
+  }
+  if(server_flag)
+  {if(WiFi.softAPgetStationNum()>0)
+  {
+    led_con+=blink_led*2;
+  }}
+    //Serial.println(WiFi.softAPgetStationNum());
  } // конец loop
 
 //------функция, вызываемая при выходе из сна (прерывание)------

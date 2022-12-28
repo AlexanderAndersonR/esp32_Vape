@@ -105,6 +105,7 @@ String html_page = R"LIT1(<!DOCTYPE HTML><html><head><title>Vape Settings</title
   WiFi.mode(WIFI_AP);
   WiFi.softAPConfig(gateway, gateway, subnet);
   WiFi.softAP(ssid, password);
+  Serial.println(WiFi.softAPIP());
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send_P(200, "text/html", buf_html);
   });
