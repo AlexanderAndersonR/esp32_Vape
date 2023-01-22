@@ -202,14 +202,14 @@ void loop() {
          vape_press = millis();    // первичное нажатие
         }
 
-      if (vape_release_count == 1) {
-        vape_mode = 2;               // двойное нажатие
-       // server_start();
-        delay(70);        
-      }
-      if (vape_release_count == 2) {
-        vape_mode = 3;                
-      }
+      // if (vape_release_count == 1) {
+      //   vape_mode = 2;               // двойное нажатие
+      //  // server_start();
+      //   delay(70);        
+      // }
+      // if (vape_release_count == 2) {
+      //   vape_mode = 3;                
+      // }
 
        if (millis() - vape_press > vape_threshold * 1000) {  // "таймер затяжки"
          vape_mode = 0;
@@ -228,13 +228,13 @@ void loop() {
         PWM_old = PWM_f;
         ledcWrite(pwmChannel,PWM_f);
       }
-      if (vape_mode == 3) {                                           // тройное нажатие
-        vape_release_count = 0;
-        vape_mode = 1;
-        vape_flag = 0;
-       // esp_deep_sleep_start();     // вызвать функцию сна
-       //server_start();
-      }
+      // if (vape_mode == 3) {                                           // тройное нажатие
+      //   vape_release_count = 0;
+      //   vape_mode = 1;
+      //   vape_flag = 0;
+      //  // esp_deep_sleep_start();     // вызвать функцию сна
+      //  //server_start();
+      // }
         vape_btt = 1;
      }
 
@@ -250,7 +250,7 @@ void loop() {
        vape_btt = 0;
        if (vape_mode == 1) {
          vape_release_count = 1;
-        vape_press = millis();
+        //vape_press = millis();
       }
       // if (vape_mode == 2) vape_release_count = 2;
 
