@@ -87,6 +87,7 @@ struct Data {
   float ohms, volts;   // храним омы
 };
 Data data;
+bool but_pres_1, but_pres_2;
 //------------------wifi-----------------------
 void setup() {
   Serial.begin(115200);
@@ -198,6 +199,8 @@ void loop() {
       vape_mode = 1;  // первичное нажатие
       delay(20);
       vape_press = millis();  // первичное нажатие
+      but_pres_1 = true;
+      but_pres_2 = true;
     }
 
     // if (vape_release_count == 1) {
@@ -209,13 +212,16 @@ void loop() {
     //   vape_mode = 3;
     // }
 
-    if (millis() - vape_press > vape_threshold * 1000) {  // "таймер затяжки"
+    if (millis() - vape_press > vape_threshold * 1000 /*&& but_pres_1*/) {  // "таймер затяжки"
       vape_mode = 0;
       ledcWrite(pwmChannel, 0);
+      stop_led = false;
+      but_pres_1 = false;
     }
-    if (millis() - vape_press > time_http) {  // "таймер включения сервера
-      Serial.print("Server start");
-      Serial.println(vape_press);
+    if (millis() - vape_press > time_http /*&& but_pres_2*/) {  // "таймер включения сервера
+      //Serial.print("Server start");
+      //Serial.println(vape_press);
+      but_pres_2 = false;
       if (!server_flag)
         server_start();
     }
@@ -247,6 +253,8 @@ void loop() {
     ledcWrite(pwmChannel, 0);
     ledcWrite(PWM1_Ch, led_con);
     stop_led = false;
+    but_pres_2 = false;
+    but_pres_1 = false;
     vape_btt = 0;
     if (vape_mode == 1) {
       vape_release_count = 1;

@@ -88,12 +88,12 @@ String html_page = R"LIT1(<!DOCTYPE HTML><html><head><title>Vape Settings</title
     <form action="/get">
      <p style="text-align: center; margin-top: 1px; margin-bottom: 1px;"> Battery Low: <input style="width: 70px;"
       type="text" name="battery_low" value=")LIT5"+(String)battery_low+R"LIT6(")>
-      <input type="submit"  value="Submit"> PWM: )LIT6"+(String)PWM+R"LIT7(</p>
+      <input type="submit"  value="Submit"></p>
     </form><br>
     <form action="/get">
      <p style="text-align: center; margin-top: 1px; margin-bottom: 1px;"> Watts: <input style="width: 70px;"
-      type="text" name="watts" value=")LIT7"+(String)watts+R"LIT8(")>
-      <input type="submit"  value="Submit"></p>
+      type="text" name="watts" value=")LIT6"+(String)watts+R"LIT7(")>
+      <input type="submit"  value="Submit"> PWM: )LIT7"+(String)PWM+R"LIT8( </p>
     </form><br>
     <form action="/get">
      <p style="text-align: center; margin-top: 1px; margin-bottom: 1px;"> Ohms: <input style="width: 70px;"
