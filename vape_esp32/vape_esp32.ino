@@ -243,7 +243,6 @@ void loop() {
     // }
     vape_btt = 1;
   }
-
   if (!button_state && vape_btt) {  // если кнопка ПАРИТЬ отпущена
     if (millis() - vape_press > 180) {
       vape_release_count = 0;
@@ -261,6 +260,13 @@ void loop() {
       //vape_press = millis();
     }
     // if (vape_mode == 2) vape_release_count = 2;
+  }
+  if (!button_state) {
+    vape_press = millis();
+    // Serial.print("millis - ");
+    // Serial.print(millis());
+    // Serial.print(" vape_press - ");
+    // Serial.println(vape_press);
   }
   //     //---------отработка нажатия кнопки парения-----------
 
